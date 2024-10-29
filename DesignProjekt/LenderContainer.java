@@ -1,38 +1,31 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /**
- * Write a description of class LenderContainer here.
- *
- * @author (your name)
+ * @Magnus Rasmussen
  * @version (a version number or a date)
  */
-public class LenderContainer
-{
-    private static LenderContainer uniqueInstance;
+
+public class LenderContainer {
+    private LenderContainer uniqueInstance;
     private ArrayList<Lender> listLenders;
-
-    /**
-     * Constructor for objects of class LenderContainer
-     */
-    public LenderContainer()
-    {
-        listLenders = new ArrayList<>();
-    }
-
-    public void addLender(Lender l)
-    {
-        listLenders.add(l);
+    
+    public LenderContainer() {
+        this.listLenders = new ArrayList<>();
     }
     
-    public static LenderContainer getUniqueInstance()
-    {
-        if(uniqueInstance == null){
+    public void addLender(Lender lender) {
+        this.listLenders.add(lender);
+    }
+    
+    public LenderContainer getUniqueInstance() {
+        if (uniqueInstance == null) {
             uniqueInstance = new LenderContainer();
         }
         return uniqueInstance;
     }
     
-    public Lender findLenderByName(String name)
+        public Lender findLenderByName(String name)
     {
         Lender foundLender = null;
         boolean found = false;
