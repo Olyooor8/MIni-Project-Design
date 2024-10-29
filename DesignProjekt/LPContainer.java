@@ -19,4 +19,20 @@ public class LPContainer
         }
         return uniqueInstance;
     }
+    
+    public Copy findLP(String serialNumber){
+        
+        Copy foundLP = null;
+        
+        for(LP lp : ListLPs){
+            Copy currentLP = lp.getCopySerial(serialNumber);
+            if(currentLP != null){
+                foundLP = currentLP;
+                break;
+            }
+        }
+        
+        return foundLP;
+    }
+    
 }

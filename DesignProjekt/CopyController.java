@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class CopyController here.
@@ -8,11 +9,14 @@
 public class CopyController
 {
     private Copy selectedCopy;
+    private LPContainer listOfLPs;
     
     
     public Copy findCopyBySerial(String serialNumber){
+        LPContainer instance = LPContainer.getUniqueInstance();
         
+        selectedCopy = instance.findLP(serialNumber);
         
-        return null;
+        return selectedCopy;
     }
 }
