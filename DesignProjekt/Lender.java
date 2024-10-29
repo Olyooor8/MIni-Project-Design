@@ -25,4 +25,7 @@ public class Lender
         return name;
     }
     
+    public String getLenderNumber(){
+        return phone;
+    }
 }
