@@ -8,8 +8,16 @@ public class LP
     private String publicationDate;
     private ArrayList<Copy> copylist;
     
-    public LP (String barcode, String title, String artist,String publicatoinDate){
-
+    public LP (String barcode, String title, String artist, String publicationDate){
+        this.barcode = barcode;
+        this.title = title;
+        this.artist = artist;
+        this.publicationDate = publicationDate;
+        copylist = new ArrayList<>();
+    }
+    
+    public void addCopy(Copy c){
+        copylist.add(c);
     }
     
     public Copy getCopySerial(String serialnumber){
