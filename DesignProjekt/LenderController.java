@@ -8,22 +8,23 @@
 public class LenderController
 {
     private Lender selectedLender;
+    private LenderContainer lenderContainer;
+    
+    public LenderController(){
+        lenderContainer = LenderContainer.getUniqueInstance();
+    }
+    
+    public void addLender(String name, String address, String postalCode, String city, String phone){
+        lenderContainer.addLender(name, address, postalCode, city, phone);
+    }
     
     public Lender findLenderByName(String name){
-        LenderContainer instance = LenderContainer.getUniqueInstance();
-        
-        selectedLender = instance.findLenderByName(name);
-        
-        
+        selectedLender = lenderContainer.findLenderByName(name);
         return selectedLender;
     }
     
     public Lender findLenderByNumber(String number){
-        LenderContainer instance = LenderContainer.getUniqueInstance();
-        
-        selectedLender = instance.findLenderByNumber(number);
-        
-        
+        selectedLender = lenderContainer.findLenderByNumber(number);
         return selectedLender;
     }
     

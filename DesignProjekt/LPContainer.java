@@ -5,7 +5,7 @@ public class LPContainer
     private static LPContainer uniqueInstance;
     private ArrayList<LP>ListLPs;
     
-    public LPContainer(){
+    private LPContainer(){
         ListLPs = new ArrayList<>();
     }
     
@@ -16,15 +16,23 @@ public class LPContainer
     public void addCopy(String barcode, String serialNumber, String condition, int purchasePrice, String purchaseDate){
         Copy newCopy = new Copy(serialNumber, condition, purchasePrice, purchaseDate);
         LP foundLP = null;
-        for(LP lp : ListLPs){
-            LP currentLP = lp;
-            String currentBarcode = lp.getBarcode();
+        int index = 0;
+        boolean found = false;
+        while(!found && index < ListLPs.size()){
+            LP currentLP = ListLPs.get(index);
+            String currentBarcode = currentLP.getBarcode();
             if(barcode.equals(currentBarcode)){
-                foundLP = currentLP;
-                break;
+                found = true;
+
+            }
+            else{
+                index++;
             }
         }
-        foundLP.addCopy(newCopy);
+        if(found){
+            foundLP = ListLPs.get(index);
+            foundLP.addCopy(newCopy);
+        }
     }
     
     public static LPContainer getUniqueInstance(){

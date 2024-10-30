@@ -10,7 +10,7 @@ public class LenderContainer {
     private static LenderContainer uniqueInstance;
     private ArrayList<Lender> listLenders;
     
-    public LenderContainer() {
+    private LenderContainer() {
         this.listLenders = new ArrayList<>();
     }
     
@@ -23,6 +23,11 @@ public class LenderContainer {
             uniqueInstance = new LenderContainer();
         }
         return uniqueInstance;
+    }
+    
+    public void addLender(String name, String address, String postalCode, String city, String phone){
+        Lender newLender = new Lender(name, address, postalCode, city, phone);
+        listLenders.add(newLender);
     }
     
         public Lender findLenderByName(String name)

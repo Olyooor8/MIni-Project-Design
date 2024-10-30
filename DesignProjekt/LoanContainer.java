@@ -11,11 +11,11 @@ public class LoanContainer
    private static LoanContainer uniqueInstance;
    private ArrayList<Loan> listLoans;
    
-   public LoanContainer(){
+   private LoanContainer(){
        listLoans = new ArrayList<>();
    }
    
-   private static LoanContainer getUniqueInstance(){
+   public static LoanContainer getUniqueInstance(){
        
        if(uniqueInstance == null){
            uniqueInstance = new LoanContainer();

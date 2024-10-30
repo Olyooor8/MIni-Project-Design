@@ -11,6 +11,7 @@ public class LoanController
     private Loan currentLoan;
     private CopyController assignedCopyController;
     private LenderController assignedLenderController;
+    private LoanContainer loanContainer;
 
     /**
      * Constructor for objects of class LoanController
@@ -19,6 +20,7 @@ public class LoanController
     {
         assignedCopyController = copy;
         assignedLenderController = lender;
+        loanContainer = LoanContainer.getUniqueInstance();
     }
 
     public void startLoan(int loanDuration, String loanNumber)
@@ -27,15 +29,26 @@ public class LoanController
     }
     
     public Lender findLenderName(String name){
-        
+        Lender foundLender = assignedLenderController.findLenderByName(name);
+        currentLoan.setLender(foundLender);
+        return foundLender;
     }
     
-    public Lender findLenderNumber(String name){
-        
+    public Lender findLenderNumber(String number){
+        Lender foundLender = assignedLenderController.findLenderByNumber(number);
+        currentLoan.setLender(foundLender);
+        return foundLender;
     }
     
     public Copy findCopy(String serialNumber){
         Copy foundCopy = assignedCopyController.findCopyBySerial(serialNumber);
         currentLoan.setCopy(foundCopy);
+        return foundCopy;
     }
+    
+    public void confirm(){
+        loanContainer.addLoan(currentLoan);
+        currentLoan = null;
+    }
+    
 }
