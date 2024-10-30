@@ -9,14 +9,24 @@ import java.util.ArrayList;
 public class CopyController
 {
     private Copy selectedCopy;
-    private LPContainer listOfLPs;
+    private LPContainer lpContainer;
     
+    public CopyController(){
+        lpContainer = LPContainer.getUniqueInstance();
+    }
     
     public Copy findCopyBySerial(String serialNumber){
-        LPContainer instance = LPContainer.getUniqueInstance();
-        
-        selectedCopy = instance.findCopy(serialNumber);
+        selectedCopy = lpContainer.findCopy(serialNumber);
         
         return selectedCopy;
+    }
+    
+    public void addLP(String barcode, String title, String artist, String publicationDate){
+        LP newLP = new LP(barcode, title, artist, publicationDate);
+        lpContainer.addLP(newLP);
+    }
+    
+    public void addCopyToLP(String barcode, String serialNumber, String condition, int purchasePrice, String purchaseDate){
+        lpContainer.addCopy(barcode, serialNumber, condition, purchasePrice, purchaseDate);
     }
 }
