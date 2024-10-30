@@ -15,7 +15,7 @@ public class CopyController
     public Copy findCopyBySerial(String serialNumber){
         LPContainer instance = LPContainer.getUniqueInstance();
         
-        selectedCopy = instance.findLP(serialNumber);
+        selectedCopy = instance.findCopy(serialNumber);
         
         return selectedCopy;
     }

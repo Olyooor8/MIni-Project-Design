@@ -20,7 +20,7 @@ public class LPContainer
         return uniqueInstance;
     }
     
-    public Copy findLP(String serialNumber){
+    public Copy findCopy(String serialNumber){
         
         Copy foundLP = null;
         
