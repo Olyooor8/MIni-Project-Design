@@ -1,14 +1,14 @@
 #BlueJ package file
-dependency1.from=LenderContainer
-dependency1.to=Lender
+dependency1.from=LPContainer
+dependency1.to=LP
 dependency1.type=UsesDependency
-dependency2.from=LPContainer
-dependency2.to=LP
+dependency2.from=LenderContainer
+dependency2.to=Lender
 dependency2.type=UsesDependency
-editor.fx.0.height=737
-editor.fx.0.width=814
-editor.fx.0.x=446
-editor.fx.0.y=94
+editor.fx.0.height=1033
+editor.fx.0.width=1721
+editor.fx.0.x=-7
+editor.fx.0.y=-7
 objectbench.height=179
 objectbench.width=1005
 package.divider.horizontal=0.600197628458498
