@@ -15,6 +15,7 @@ public class LoanController
 
     /**
      * Constructor for objects of class LoanController
+     * @param copy The CopyController
      */
     public LoanController(CopyController copy, LenderController lender)
     {
