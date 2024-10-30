@@ -31,7 +31,7 @@ public class LenderUI
         return choice;
     }
     
-    private Lender createNewLender(){
+    private void createNewLender(){
         LenderController lenCon = new LenderController();
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Lender not found, please create profile ***");
@@ -51,5 +51,6 @@ public class LenderUI
         String phone = keyboard.nextLine();
         
         lenCon.addLender(name, address, postalCode, city, phone);
+        System.out.println("Lender Profile successfully created.");
     }
 }

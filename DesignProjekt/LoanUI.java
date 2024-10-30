@@ -18,7 +18,9 @@ public class LoanUI
     public void start(){
         loanMenuFunc();
     }
-
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     public void loanMenuFunc(){
         boolean exit = false;
         while(!exit) {
@@ -60,36 +62,41 @@ public class LoanUI
         int choice = keyboard.nextInt();
         return choice;
     }
-
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     public void createLoanFunc(){
         boolean exit = false;
         while(!exit) {
             int choice = createLoanMenu();
             switch (choice) {
-                case 1: //create course
-                    Lender l = findLenderName();
-                    if(l == null){
-                        System.out.println("Lender not found.");
-                    } else{
-                        findCopy();
-                    }
-                    break; 
-                    
-                // case 2: //find course
-                    // //TODO add this when controller and model are implementedCourse course = findCourse();
-                    // Lender l = findLenderNumber();
-                    // if(l == null){
-                        // System.out.println("Lender not found.");
-                    // } else{
-                        // findCopy();
-                    // }
-                    // break;
-                    // //TODO add additional use cases 
-
-                default:
+                case 0:
                     System.out.println("Tak for i dag.");
                     exit = true;
                     break;
+                
+                case 1: //create course
+                    Lender l1 = findLenderName();
+                    if(l1 == null){
+                        System.out.println("Lender not found.");
+                    } else{
+                        findCopySerial();
+                    }
+                    break; 
+                    
+                case 2: //find course
+                    //TODO add this when controller and model are implementedCourse course = findCourse();
+                    Lender l2 = findLenderNumber();
+                    if(l2 == null){
+                        System.out.println("Lender not found.");
+                    } else{
+                        findCopySerial();
+                    }
+                    break;
+                    //TODO add additional use cases 
+
+                default:
+                    System.out.println("Input Invalid, try again.");
             }         
         }
     }
@@ -110,7 +117,9 @@ public class LoanUI
         int choice = keyboard.nextInt();
         return choice;
     }
-
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     private String inputLoanName() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Lender ***");
@@ -127,6 +136,26 @@ public class LoanUI
         return result;
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    private String inputLoanNumber() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Assign a Lender ***");
+        System.out.println("*** Search By Number ***");
+        System.out.println("Please type the phone number to specify lender");
+        String choice = keyboard.nextLine();
+        return choice;
+    }
+    
+    private Lender findLenderNumber(){
+        String number = inputLoanNumber();
+        LenderController lenCon = new LenderController();
+        Lender result = lenCon.findLenderByNumber(number);
+        return result;
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     private String inputLoanSerialNumber() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Copy ***");
@@ -136,7 +165,7 @@ public class LoanUI
         return choice;
     }
     
-    private Copy findCopy(){
+    private Copy findCopySerial(){
         String serialNumber = inputLoanSerialNumber();
         CopyController coCon = new CopyController();
         Copy result = coCon.findCopyBySerial(serialNumber);
