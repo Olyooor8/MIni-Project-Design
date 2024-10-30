@@ -20,6 +20,10 @@ public class LP
         copylist.add(c);
     }
     
+    public String getBarcode(){
+        return barcode;
+    }
+    
     public Copy getCopySerial(String serialnumber){
         Copy foundCopy = null;
         for(Copy c : copylist){

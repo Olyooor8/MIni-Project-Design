@@ -19,4 +19,17 @@ public class CopyController
         
         return selectedCopy;
     }
+    
+    public void addLP(String barcode, String title, String artist, String publicationDate){
+        if(listOfLPs == null){
+            listOfLPs = new LPContainer();
+        }
+        LP newLP = new LP(barcode, title, artist, publicationDate);
+        listOfLPs.addLP(newLP);
+    }
+    
+    public void addCopyToLP(String barcode, String serialNumber, String condition, int purchasePrice, String purchaseDate){
+        LPContainer instance = LPContainer.getUniqueInstance();
+        instance.addCopy(barcode, serialNumber, condition, purchasePrice, purchaseDate);
+    }
 }
