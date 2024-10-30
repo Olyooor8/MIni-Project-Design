@@ -7,7 +7,7 @@ import java.util.Iterator;
  */
 
 public class LenderContainer {
-    private LenderContainer uniqueInstance;
+    private static LenderContainer uniqueInstance;
     private ArrayList<Lender> listLenders;
     
     public LenderContainer() {
@@ -18,7 +18,7 @@ public class LenderContainer {
         this.listLenders.add(lender);
     }
     
-    public LenderContainer getUniqueInstance() {
+    public static LenderContainer getUniqueInstance() {
         if (uniqueInstance == null) {
             uniqueInstance = new LenderContainer();
         }
@@ -33,8 +33,9 @@ public class LenderContainer {
         while(it.hasNext() && !found){
             Lender currentLender = it.next();
             if(name.equals(currentLender.getLenderName())){
-                found = true;
                 foundLender = currentLender;
+                found = true;
+        
             }
         }
         return foundLender;
