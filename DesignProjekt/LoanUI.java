@@ -140,7 +140,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Create a Loan ***");
         System.out.println("*** Assign a Duration (Days) ***");
-        System.out.println("Please type the length of loan in days.");
+        System.out.println("Please type the length of loan in days. /n");
         while (!keyboard.hasNextInt()){
             keyboard.nextLine();//need to read the newline          
             System.out.println("Type a number, try again");
@@ -153,7 +153,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Create a Loan ***");
         System.out.println("*** Assign an Identifier ***");
-        System.out.println("Please type the number you wish to assign");
+        System.out.println("Please type the number you wish to assign. /n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -164,7 +164,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Lender ***");
         System.out.println("*** Search By Name ***");
-        System.out.println("Please type the name you wish to assign");
+        System.out.println("Please type the name you wish to assign. /n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -182,7 +182,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Lender ***");
         System.out.println("*** Search By Number ***");
-        System.out.println("Please type the phone number to specify lender");
+        System.out.println("Please type the phone number to specify lender. /n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -200,7 +200,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Copy ***");
         System.out.println("*** Find by Serial Number ***");
-        System.out.println("Please type the serial number you wish to assign");
+        System.out.println("Please type the serial number you wish to assign. /n");
         String choice = keyboard.nextLine();
         return choice;
     }

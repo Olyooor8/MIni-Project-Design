@@ -36,7 +36,7 @@ public class LoanContainer
            Loan currentLoan = listLoans.get(index);
            System.out.println("Loan " + index + ": ");
            System.out.print("Loan " + index + ": " + currentLoan.getLoanNumber());
-           System.out.print(" " + currentLoan.getPeriodStart() + " " + currentLoan.getPeriodEnd());
+           System.out.print(" " + currentLoan.getPeriodStart() + " " + currentLoan.getPeriodEnd() + "/n");
        }
        
        if(listLoans.size() == 0){
