@@ -60,7 +60,7 @@ public class LP
         this.artist = artist;
     }
     
-    public void setpublicationYear(String publicationYear){
+    public void setPublicationYear(String publicationYear){
         this.publicationYear =  publicationYear;
     }
     

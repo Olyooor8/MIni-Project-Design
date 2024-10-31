@@ -142,7 +142,7 @@ public class LPUI {
                 case 3: 
                     System.out.println("Please type the new publication year");
                     String newPublicationYear = input();
-                    foundLP.setpublicationYear(newPublicationYear);
+                    foundLP.setPublicationYear(newPublicationYear);
                     break;   
 
                 default:

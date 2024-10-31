@@ -24,13 +24,13 @@ public class LoanUI
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    public void loanMenuFunc(){
+    private void loanMenuFunc(){
         boolean exit = false;
         while(!exit) {
             int choice = writeLoanMenu();
             switch (choice) {
                 case 0:
-                    System.out.println("/n");
+                    System.out.println("\n");
                     exit = true;
                     break;
                     
@@ -57,7 +57,7 @@ public class LoanUI
         System.out.print("\n Please select a menu: ");
 
         while (!keyboard.hasNextInt()){
-            keyboard.nextLine();//need to read the newline          
+            keyboard.nextLine();         
             System.out.println("Type a number, try again");
         }
         int choice = keyboard.nextInt();
@@ -66,13 +66,13 @@ public class LoanUI
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    public void createLoanFunc(){
+    private void createLoanFunc(){
         boolean exit = false;
         while(!exit) {
             int choice = createLoanMenu();
             switch (choice) {
                 case 0:
-                    System.out.println("Returning to Loan Menu. /n");
+                    System.out.println("Returning to Loan Menu. \n");
                     exit = true;
                     break;
                 
@@ -120,7 +120,7 @@ public class LoanUI
         System.out.print("\n Please select an action: ");
 
         while (!keyboard.hasNextInt()){
-            keyboard.nextLine();//need to read the newline          
+            keyboard.nextLine();         
             System.out.println("Type a number, try again");
         }
         int choice = keyboard.nextInt();
@@ -140,9 +140,9 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Create a Loan ***");
         System.out.println("*** Assign a Duration (Days) ***");
-        System.out.println("Please type the length of loan in days. /n");
+        System.out.println("Please type the length of loan in days. \n");
         while (!keyboard.hasNextInt()){
-            keyboard.nextLine();//need to read the newline          
+            keyboard.nextLine();        
             System.out.println("Type a number, try again");
         }
         int choice = keyboard.nextInt();
@@ -153,7 +153,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Create a Loan ***");
         System.out.println("*** Assign an Identifier ***");
-        System.out.println("Please type the number you wish to assign. /n");
+        System.out.println("Please type the number you wish to assign. \n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -164,7 +164,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Lender ***");
         System.out.println("*** Search By Name ***");
-        System.out.println("Please type the name you wish to assign. /n");
+        System.out.println("Please type the name you wish to assign. \n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -182,7 +182,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Lender ***");
         System.out.println("*** Search By Number ***");
-        System.out.println("Please type the phone number to specify lender. /n");
+        System.out.println("Please type the phone number to specify lender. \n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -200,7 +200,7 @@ public class LoanUI
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Copy ***");
         System.out.println("*** Find by Serial Number ***");
-        System.out.println("Please type the serial number you wish to assign. /n");
+        System.out.println("Please type the serial number you wish to assign. \n");
         String choice = keyboard.nextLine();
         return choice;
     }
@@ -219,7 +219,7 @@ public class LoanUI
         System.out.println("*** Please Select Loan to Remove ***");
         System.out.println("*** Loans -- Loan Numbers -- Loan Start -- Loan End ***");
         loanContainer.displayLoans();
-        System.out.println("/n Please type the loan number you wish to select (Exit to leave)");
+        System.out.println("\n Please type the loan number you wish to select (Exit to leave)");
         String choice = keyboard.nextLine();
         return choice;
     }
