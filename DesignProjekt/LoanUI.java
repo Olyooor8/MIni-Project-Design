@@ -8,7 +8,9 @@ import java.util.InputMismatchException;
  */
 public class LoanUI
 {
-
+    
+    private LoanContainer loanContainer;
+    
     /**
      * An example of a method - replace this comment with your own
      *
@@ -16,6 +18,7 @@ public class LoanUI
      * @return    the sum of x and y
      */
     public void start(){
+        loanContainer = LoanContainer.getUniqueInstance();
         loanMenuFunc();
     }
     
@@ -76,21 +79,29 @@ public class LoanUI
                     break;
                 
                 case 1: //create course
+                    Loan newLoan1 = createNewLoan();
                     Lender l1 = findLenderName();
+                    newLoan1.setLender(l1);
                     if(l1 == null){
                         System.out.println("Lender not found.");
                     } else{
-                        findCopySerial();
+                        Copy c1 = findCopySerial();
+                        newLoan1.setCopy(c1);
+                        loanContainer.addLoan(newLoan1);
                     }
                     break; 
                     
                 case 2: //find course
                     //TODO add this when controller and model are implementedCourse course = findCourse();
+                    Loan newLoan2 = createNewLoan();
                     Lender l2 = findLenderNumber();
+                    newLoan2.setLender(l2);
                     if(l2 == null){
                         System.out.println("Lender not found.");
                     } else{
-                        findCopySerial();
+                        Copy c2 = findCopySerial();
+                        newLoan2.setCopy(c2);
+                        loanContainer.addLoan(newLoan2);
                     }
                     break;
                     //TODO add additional use cases 
@@ -118,13 +129,44 @@ public class LoanUI
         return choice;
     }
     
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
     
     private String inputLoanName() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Assign a Lender ***");
         System.out.println("*** Search By Name ***");
         System.out.println("Please type the name you wish to assign");
+        String choice = keyboard.nextLine();
+        return choice;
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    private Loan createNewLoan(){
+        String loanNumber = inputLoanIdentifier();
+        int loanDuration = inputLoanDuration();
+        Loan newLoan = new Loan(loanDuration, loanNumber);
+        return newLoan;
+    }
+    
+    private int inputLoanDuration() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Create a Loan ***");
+        System.out.println("*** Assign a Duration (Days) ***");
+        System.out.println("Please type the length of loan in days.");
+        while (!keyboard.hasNextInt()){
+            keyboard.nextLine();//need to read the newline          
+            System.out.println("Type a number, try again");
+        }
+        int choice = keyboard.nextInt();
+        return choice;
+    }
+    
+    private String inputLoanIdentifier() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Create a Loan ***");
+        System.out.println("*** Assign an Identifier ***");
+        System.out.println("Please type the number you wish to assign");
         String choice = keyboard.nextLine();
         return choice;
     }
