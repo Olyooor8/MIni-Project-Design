@@ -76,7 +76,7 @@ public class LoanUI
                     exit = true;
                     break;
                 
-                case 1: //create course
+                case 1: 
                     Loan newLoan1 = createNewLoan();
                     Lender l1 = findLenderName();
                     newLoan1.setLender(l1);
@@ -84,13 +84,19 @@ public class LoanUI
                         System.out.println("Lender not found.");
                     } else{
                         Copy c1 = findCopySerial();
+                        
+                        if(c1 == null){
+                            break;
+                        }
+                        
                         newLoan1.setCopy(c1);
                         loanContainer.addLoan(newLoan1);
+                        
+                        c1.setAvailable(false);
                     }
                     break; 
                     
-                case 2: //find course
-                    //TODO add this when controller and model are implementedCourse course = findCourse();
+                case 2: 
                     Loan newLoan2 = createNewLoan();
                     Lender l2 = findLenderNumber();
                     newLoan2.setLender(l2);
@@ -100,6 +106,7 @@ public class LoanUI
                         Copy c2 = findCopySerial();
                         newLoan2.setCopy(c2);
                         loanContainer.addLoan(newLoan2);
+                        c2.setAvailable(false);
                     }
                     break;
                     //TODO add additional use cases 
@@ -209,6 +216,15 @@ public class LoanUI
         String serialNumber = inputLoanSerialNumber();
         CopyController coCon = new CopyController();
         Copy result = coCon.findCopyBySerial(serialNumber);
+        
+        if(result == null){
+            System.out.println("This copy does not exist");
+            result = null;
+        } else if(!result.getAvailable()){
+            System.out.println("This copy is not available");
+            result = null;
+        }
+        
         return result;
     }
     
