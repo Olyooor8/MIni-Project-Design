@@ -34,8 +34,8 @@ public class LPUI {
                     System.out.println(foundLP);
                     System.out.println("LP has the following copies:");
                     for(int index = 0; index < foundCopies.size(); index++){
-                        Copy currentCopy = foundCopies.get(index)
-                        System.out.println("Copy " + index + ": Serial" + currentCopy. );
+                        Copy currentCopy = foundCopies.get(index);
+                        System.out.println("Copy " + index + ": Serial " + currentCopy.getSerialNumber() + ", condition " + currentCopy.getCondition() + ".");
                     }
                     break;
                 

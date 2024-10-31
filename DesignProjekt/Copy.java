@@ -43,6 +43,16 @@ public class Copy
         return available;
     }
     
+    public String getSerialNumber()
+    {
+        return serialNumber;
+    }
+    
+    public String getCondition()
+    {
+        return condition;
+    }
+    
     public void setAvailable(boolean available)
     {
         this.available = available;
