@@ -103,7 +103,7 @@ public class LenderUI
         Lender foundLender = findLenderName();
         
         while(!exit) {
-            int choice = updateLPMenu();
+            int choice = updateLenderMenu();
             switch (choice) {
                 case 0:
                     System.out.println("Tak for i dag.");
@@ -145,7 +145,7 @@ public class LenderUI
         }
     }
     
-    private int updateLPMenu() {
+    private int updateLenderMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Update menu ***");
         System.out.println(" (1) Change name");
