@@ -47,14 +47,14 @@ public class LenderContainer {
         listLenders.add(newLender);
     }
     
-        public Lender findLenderByName(String name)
+    public Lender findLenderByName(String name)
     {
         Lender foundLender = null;
         boolean found = false;
         Iterator<Lender> it = listLenders.iterator();
         while(it.hasNext() && !found){
             Lender currentLender = it.next();
-            if(name.equals(currentLender.getLenderName())){
+            if(name.equals(currentLender.getName())){
                 foundLender = currentLender;
                 found = true;
         
@@ -70,11 +70,41 @@ public class LenderContainer {
         Iterator<Lender> it = listLenders.iterator();
         while(it.hasNext() && !found){
             Lender currentLender = it.next();
-            if(number.equals(currentLender.getLenderNumber())){
+            if(number.equals(currentLender.getNumber())){
                 found = true;
                 foundLender = currentLender;
             }
         }
         return foundLender;
     }
+    
+    public void printAllLenders() {
+        for (Lender lender : listLenders) {
+            System.out.println(lender);
+            System.out.println();
+        }
+    }
+    
+    public void removeLender(Lender lenderToRemove) {
+        listLenders.remove(findLenderIndex(lenderToRemove));
+    }
+    
+    private int findLenderIndex(Lender lender) {
+        boolean found = false;
+        int index = 0;
+        
+        while(!found && index < listLenders.size()){
+            Lender currentLender = listLenders.get(index);
+            if(currentLender.getName().equals(lender.getName())){
+                found = true;
+            }
+            else {
+                index++;
+            }
+        }  
+        
+        return index;
+    }
+    
+    
 }

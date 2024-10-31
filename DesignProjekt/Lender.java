@@ -31,35 +31,60 @@ public class Lender
     /**
      * A getter to return the name of the lender
      */
-    public String getLenderName(){
+    public String getName(){
         return name;
     }
     
     /**
      * A getter to return the address of the lender
      */
-    public String getLenderAddress(){
+    public String getAddress(){
         return address;
     }
     
     /**
      * A getter to return the postal code of the lender
      */
-    public String getLenderPostalCode(){
+    public String getPostalCode(){
         return postalCode;
     }
     
     /**
      * A getter to return the home city of the lender
      */
-    public String getLenderCity(){
+    public String getCity(){
         return city;
     }
     
     /**
      * A getter to return the number of the lender
      */
-    public String getLenderNumber(){
+    public String getNumber(){
         return phone;
     }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public void setAddress(String address){
+        this.address = address;
+    }
+    
+    public void setPostalCode(String postalcode){
+        this.postalCode = postalCode;
+    }
+    
+    public void setCity(String city){
+        this.city = city;
+    }
+    
+    public void setPhone(String phone){
+        this.phone = phone;
+    }
+    
+    public String toString() {
+        return "Name: " + name + "\nAddress: " + address + "\nPostalcode: " + postalCode + "\nCity: " + city + "\nPhone Number: " + phone;
+    }
+    
 }

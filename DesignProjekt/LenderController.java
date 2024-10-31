@@ -46,5 +46,13 @@ public class LenderController
         return selectedLender;
     }
     
+    public void printAllLenders(){
+        lenderContainer.printAllLenders();
+    }
+    
+    public void removeLender(Lender lenderToRemove) {
+        lenderContainer.removeLender(lenderToRemove);
+    }
+    
 }
 
