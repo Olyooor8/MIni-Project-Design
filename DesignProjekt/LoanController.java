@@ -8,8 +8,6 @@ public class LoanController
 {
     // instance variables - replace the example below with your own
     private Loan currentLoan;
-    private CopyController assignedCopyController;
-    private LenderController assignedLenderController;
     private LoanContainer loanContainer;
 
     /**
@@ -17,10 +15,8 @@ public class LoanController
      * @param copy The CopyController that becomes assigned to the Loan Controller
      * @param lender The LenderController that becomes assigned to the Loan Controller
      */
-    public LoanController(CopyController copy, LenderController lender)
+    public LoanController()
     {
-        assignedCopyController = copy;
-        assignedLenderController = lender;
         loanContainer = LoanContainer.getUniqueInstance();
     }
     
@@ -39,7 +35,8 @@ public class LoanController
      * @param name The name that the system should try and find
      */
     public Lender findLenderName(String name){
-        Lender foundLender = assignedLenderController.findLenderByName(name);
+        LenderController instance = new LenderController();
+        Lender foundLender = instance.findLenderByName(name);
         currentLoan.setLender(foundLender);
         return foundLender;
     }
@@ -49,7 +46,8 @@ public class LoanController
      * @param number The number that the system should try and find
      */
     public Lender findLenderNumber(String number){
-        Lender foundLender = assignedLenderController.findLenderByNumber(number);
+        LenderController instance = new LenderController();
+        Lender foundLender = instance.findLenderByNumber(number);
         currentLoan.setLender(foundLender);
         return foundLender;
     }
@@ -59,7 +57,8 @@ public class LoanController
      * @param serialNumber The serial number that the system should try and find
      */
     public Copy findCopy(String serialNumber){
-        Copy foundCopy = assignedCopyController.findCopyBySerial(serialNumber);
+        CopyController instance = new CopyController();
+        Copy foundCopy = instance.findCopyBySerial(serialNumber);
         currentLoan.setCopy(foundCopy);
         return foundCopy;
     }
