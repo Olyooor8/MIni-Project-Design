@@ -29,6 +29,27 @@ public class Loan {
     }
     
     /**
+     * A Getter to return the identifying number of the loan
+     */
+    public String getLoanNumber() {
+        return loanNumber;
+    }
+    
+    /**
+     * A Getter to return the end date of the loan
+     */
+    public LocalDate getPeriodEnd() {
+        return periodEnd;
+    }
+    
+    /**
+     * A Getter to return the start date of the loan
+     */
+    public LocalDate getPeriodStart() {
+        return periodStart;
+    }
+    
+    /**
      * A Setter to assign a Copy to the loan
      * @param copy The copy that becomes assigned to the loan
      */

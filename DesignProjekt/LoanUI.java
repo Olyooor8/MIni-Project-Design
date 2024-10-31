@@ -38,11 +38,9 @@ public class LoanUI
                     createLoanFunc();
                     break; 
                     
-                // case 2:
-                    // //TODO add this when controller and model are implementedCourse course = findCourse();
-                    // removeLoanMenu();
-                    // break;
-                    // //TODO add additional use cases 
+                case 2:
+                    removeLoanFunc();
+                    break;
 
                 default:
                     System.out.println("Input Invalid, try again.");
@@ -212,5 +210,36 @@ public class LoanUI
         CopyController coCon = new CopyController();
         Copy result = coCon.findCopyBySerial(serialNumber);
         return result;
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    private String inputSelectLoan() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Please Select Loan to Remove ***");
+        System.out.println("*** Loans -- Loan Numbers -- Loan Start -- Loan End ***");
+        loanContainer.displayLoans();
+        System.out.println("Please type the loan number you wish to select (Exit to leave)");
+        String choice = keyboard.nextLine();
+        return choice;
+    }
+    
+    private void removeLoanFunc(){
+        boolean exit = false;
+        while(!exit){
+            String chosenLoanNumber = inputSelectLoan();
+            if(chosenLoanNumber.equals("Exit") || chosenLoanNumber.equals("exit")){
+                exit = true;
+                break;
+            }
+            Loan foundLoan = null;
+            foundLoan = loanContainer.findLoanNumber(chosenLoanNumber);
+            if(foundLoan == null){
+                System.out.println("No loan found with written number.");
+            } else{
+                System.out.println("Loan found and deleted.");
+                loanContainer.removeLoan(foundLoan);
+            }
+        }
     }
 }
