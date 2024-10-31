@@ -39,6 +39,10 @@ public class LoanContainer
            System.out.print("Loan " + index + ": " + currentLoan.getLoanNumber());
            System.out.print(" " + currentLoan.getPeriodStart() + " " + currentLoan.getPeriodEnd());
        }
+       
+       if(listLoans.size() == 0){
+           System.out.println("No loans are currently registered.");
+       }
    }
    
    /**
