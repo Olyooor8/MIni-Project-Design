@@ -64,4 +64,11 @@ public class CopyController
     public void removeLP(LP lPToRemove) {
         lpContainer.removeLP(lPToRemove);
     }
+    
+    public Copy findCopySerialNumber(String serialNumber){
+        
+        for(LP lp : lp.)
+        
+    }
+    
 }

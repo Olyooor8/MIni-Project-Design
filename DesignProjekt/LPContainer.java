@@ -129,4 +129,9 @@ public class LPContainer
         this.listLPs.remove(findLPBarcodeIndex(lpToRemove));
     }
     
+    public ArrayList<LP> getLPList(){
+        return listLPs;
+    }
+    
+    
 }

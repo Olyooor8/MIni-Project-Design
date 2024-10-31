@@ -12,6 +12,7 @@ public class Copy
     private String purchaseDate;
     private int purchasePrice;
     private String condition;
+    private boolean available;
 
     /**
      * Constructor for objects of class Copy
@@ -26,6 +27,7 @@ public class Copy
         this.purchaseDate = purchaseDate;
         this.purchasePrice = purchasePrice;
         this.condition = condition;
+        this.available = true;
     }
     
     /**
@@ -34,5 +36,15 @@ public class Copy
     public String getCopySerial()
     {
         return serialNumber;
+    }
+    
+    public boolean getAvailable()
+    {
+        return available;
+    }
+    
+    public void setAvailable(boolean available)
+    {
+        this.available = available;
     }
 }
