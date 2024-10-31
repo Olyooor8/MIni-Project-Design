@@ -36,6 +36,27 @@ public class Lender
     }
     
     /**
+     * A getter to return the address of the lender
+     */
+    public String getLenderAddress(){
+        return address;
+    }
+    
+    /**
+     * A getter to return the postal code of the lender
+     */
+    public String getLenderPostalCode(){
+        return postalCode;
+    }
+    
+    /**
+     * A getter to return the home city of the lender
+     */
+    public String getLenderCity(){
+        return city;
+    }
+    
+    /**
      * A getter to return the number of the lender
      */
     public String getLenderNumber(){
