@@ -48,6 +48,10 @@ public class LP
         return publicationYear;
     }
     
+    public ArrayList getCopies(){
+        return copylist;
+    }
+    
     public void setBarcode(String barcode){
         this.barcode = barcode;
     }

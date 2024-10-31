@@ -28,7 +28,15 @@ public class LPUI {
                     break;
                 
                 case 3:
-                    System.out.println(findLPBarcode());
+                    LP foundLP = findLPBarcode();
+                    ArrayList<Copy> foundCopies = new ArrayList<>();
+                    foundCopies = foundLP.getCopies();
+                    System.out.println(foundLP);
+                    System.out.println("LP has the following copies:");
+                    for(int index = 0; index < foundCopies.size(); index++){
+                        Copy currentCopy = foundCopies.get(index)
+                        System.out.println("Copy " + index + ": Serial" + currentCopy. );
+                    }
                     break;
                 
                 case 4:
@@ -97,6 +105,13 @@ public class LPUI {
     }
     
     private LP findLPBarcode(){
+        String barcode = inputLPBarcode();
+        CopyController copyCon = new CopyController();
+        LP result = copyCon.findLPByBarcode(barcode);
+        return result;
+    }
+    
+    private LP findLPCopies(){
         String barcode = inputLPBarcode();
         CopyController copyCon = new CopyController();
         LP result = copyCon.findLPByBarcode(barcode);
