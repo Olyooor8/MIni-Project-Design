@@ -22,7 +22,6 @@ public class LoanContainer
      * This is where the LPContainer is created, only if there is no container
      */
    public static LoanContainer getUniqueInstance(){
-       
        if(uniqueInstance == null){
            uniqueInstance = new LoanContainer();
        }
