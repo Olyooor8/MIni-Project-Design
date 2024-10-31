@@ -72,6 +72,7 @@ public class LPContainer
             Copy currentLP = currentLPIndex.getCopySerial(serialNumber);
             if(currentLP != null){
                 foundLP = currentLP;
+                found = true;
             }
             else {
                 index++;
@@ -79,6 +80,53 @@ public class LPContainer
         }
         
         return foundLP;
+    }
+    
+    public LP findLPBarcode(String barcode){
+        LP foundLP = null;
+        boolean found = false;
+        int index = 0;
+        
+        while(!found && index < listLPs.size()){
+            LP currentLP = listLPs.get(index);
+            if(currentLP.getBarcode().equals(barcode)){
+                foundLP = currentLP;
+                found = true;
+            }
+            else {
+                index++;
+            }
+        }
+        
+        return foundLP;
+    }
+    
+    private int findLPBarcodeIndex(LP lp) {
+        boolean found = false;
+        int index = 0;
+        
+        while(!found && index < listLPs.size()){
+            LP currentLP = listLPs.get(index);
+            if(currentLP.getBarcode().equals(lp.getBarcode())){
+                found = true;
+            }
+            else {
+                index++;
+            }
+        }  
+        
+        return index;
+    }
+        
+    public void printAllLPs() {
+        for (LP lp : this.listLPs) {
+            System.out.println(lp);
+            System.out.println();
+        }
+    }
+    
+    public void removeLP(LP lpToRemove) {
+        this.listLPs.remove(findLPBarcodeIndex(lpToRemove));
     }
     
 }

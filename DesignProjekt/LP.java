@@ -5,7 +5,7 @@ public class LP
     private String barcode;
     private String title;
     private String artist;
-    private String publicationDate;
+    private String publicationYear;
     private ArrayList<Copy> copylist;
     
     /**
@@ -14,11 +14,11 @@ public class LP
      * param@ artist This is the artist of the song.
      * param@ publicationDate This is when the LP were released.
      */
-    public LP (String barcode, String title, String artist, String publicationDate){
+    public LP (String barcode, String title, String artist, String publicationYear){
         this.barcode = barcode;
         this.title = title;
         this.artist = artist;
-        this.publicationDate = publicationDate;
+        this.publicationYear = publicationYear;
         copylist = new ArrayList<>();
     }
     
@@ -36,6 +36,34 @@ public class LP
         return barcode;
     }
     
+    public String getTitle(){
+        return title;
+    }
+    
+    public String getArtist(){
+        return artist;
+    }
+    
+    public String getpublicationYear(){
+        return publicationYear;
+    }
+    
+    public void setBarcode(String barcode){
+        this.barcode = barcode;
+    }
+    
+    public void setTitle(String title){
+        this.title = title;
+    }
+    
+    public void setArtist(String artist){
+        this.artist = artist;
+    }
+    
+    public void setpublicationYear(String publicationYear){
+        this.publicationYear =  publicationYear;
+    }
+    
     /**
      * A getter method to find a copy of a specific LP
      * param@ serialNumber this is a string you use for search.
@@ -49,7 +77,7 @@ public class LP
             Copy currentCopy = copylist.get(index);
             String currentnumber = currentCopy.getCopySerial();
             if(currentnumber.equals(serialNumber)){
-                foundCopy = foundCopy;
+                foundCopy = currentCopy;
                 found = true;
             } 
             else{
@@ -58,5 +86,9 @@ public class LP
         }
     
         return foundCopy;
+    }
+    
+    public String toString() {
+        return "Title: " + this.title + "\nArtist: " + this.artist + "\nPublication Year: " + this.publicationYear + "\nBarcode: " + this.barcode;
     }
 }

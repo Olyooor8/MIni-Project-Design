@@ -27,6 +27,16 @@ public class CopyController
         return selectedCopy;
     }
     
+    public LP findLPByBarcode(String barcode){
+        LP selectedLP= lpContainer.findLPBarcode(barcode);
+        
+        return selectedLP;
+    }
+    
+    public void printAllLPs() {
+        this.lpContainer.printAllLPs();
+    }    
+    
     /**
      * A method used to add LPs to the LP Container from the Copy Controller
      * @param barcode The identifying code of an LP
@@ -49,5 +59,9 @@ public class CopyController
      */
     public void addCopyToLP(String barcode, String serialNumber, String condition, int purchasePrice, String purchaseDate){
         lpContainer.addCopy(barcode, serialNumber, condition, purchasePrice, purchaseDate);
+    }
+    
+    public void removeLP(LP lPToRemove) {
+        lpContainer.removeLP(lPToRemove);
     }
 }
