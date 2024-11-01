@@ -103,12 +103,16 @@ public class LoanUI
                         System.out.println("Lender not found.");
                     } else{
                         Copy c2 = findCopySerial();
+                        if(c2 == null){
+                            break;
+                        }
+                        
                         newLoan2.setCopy(c2);
                         loanContainer.addLoan(newLoan2);
+                        
                         c2.setAvailable(false);
                     }
                     break;
-                    //TODO add additional use cases 
 
                 default:
                     System.out.println("Input Invalid, try again.");

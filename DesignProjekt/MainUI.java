@@ -23,14 +23,14 @@ public class MainUI
         while(!exit) {
             int choice = writeMainMenu();
             switch (choice) {
-                case 1: //create course
+                case 1:
                   lenderUI.start();
                   break;  
-                case 2: //find course
-                  //TODO add this when controller and model are implementedCourse course = findCourse();
+                  
+                case 2:
                   lpUI.start();
                   break;
-                //TODO add additional use cases 
+                  
                 case 3:
                   loanUI.start();
                   break;
