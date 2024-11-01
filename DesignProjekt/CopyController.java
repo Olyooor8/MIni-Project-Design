@@ -84,6 +84,7 @@ public class CopyController
                 }
             }
             indexCopy = 0;
+            indexLP++;
         }
         return foundCopy;
     }
