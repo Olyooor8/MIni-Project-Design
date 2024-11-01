@@ -84,7 +84,6 @@ public class LoanUI
                         System.out.println("Lender not found.");
                     } else{
                         Copy c1 = findCopySerial();
-                        
                         if(c1 == null){
                             break;
                         }
@@ -215,7 +214,7 @@ public class LoanUI
     private Copy findCopySerial(){
         String serialNumber = inputLoanSerialNumber();
         CopyController coCon = new CopyController();
-        Copy result = coCon.findCopyBySerial(serialNumber);
+        Copy result = coCon.findCopySerialNumber(serialNumber);
         
         if(result == null){
             System.out.println("This copy does not exist");

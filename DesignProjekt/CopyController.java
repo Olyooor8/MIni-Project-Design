@@ -67,8 +67,30 @@ public class CopyController
     
     public Copy findCopySerialNumber(String serialNumber){
         
-        for(LP lp : lp.)
+        Copy foundCopy = null;
+        boolean found = false;
+        int indexLP = 0;
+        int indexCopy = 0;
         
+        while(!found && indexLP < lpContainer.getLPList().size()){
+            LP currentLP = lpContainer.getLPList().get(indexLP);
+            
+            while(!found && indexCopy < currentLP.getCopies().size()){
+                ArrayList<Copy> copyList = currentLP.getCopies();
+                Copy currentCopy = copyList.get(indexCopy);
+                
+                if(currentCopy.getSerialNumber().equals(serialNumber)){
+                    found = true;
+                    foundCopy = currentCopy;
+                }else{
+                    indexCopy++;
+                }
+            }
+            indexCopy = 0;
+        }
+        
+        return foundCopy;
     }
-    
 }
+    
+
