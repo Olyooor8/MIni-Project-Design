@@ -78,6 +78,8 @@ public class LoanUI
                 
                 case 1: 
                     Loan newLoan1 = createNewLoan();
+                    LoanController lc1 = new LoanController();
+                    lc1.setLoan(newLoan1);
                     Lender l1 = findLenderName();
                     newLoan1.setLender(l1);
                     if(l1 == null){
@@ -87,16 +89,16 @@ public class LoanUI
                         if(c1 == null){
                             break;
                         }
-                        
                         newLoan1.setCopy(c1);
-                        loanContainer.addLoan(newLoan1);
-                        
+                        lc1.confirm();
                         c1.setAvailable(false);
                     }
                     break; 
                     
                 case 2: 
                     Loan newLoan2 = createNewLoan();
+                    LoanController lc2 = new LoanController();
+                    lc2.setLoan(newLoan2);
                     Lender l2 = findLenderNumber();
                     newLoan2.setLender(l2);
                     if(l2 == null){
@@ -106,10 +108,8 @@ public class LoanUI
                         if(c2 == null){
                             break;
                         }
-                        
                         newLoan2.setCopy(c2);
-                        loanContainer.addLoan(newLoan2);
-                        
+                        lc2.confirm();
                         c2.setAvailable(false);
                     }
                     break;

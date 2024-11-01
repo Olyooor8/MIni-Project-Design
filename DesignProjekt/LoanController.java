@@ -30,6 +30,11 @@ public class LoanController
         currentLoan = new Loan(loanDuration, loanNumber);
     }
     
+    public void setLoan(Loan loan)
+    {
+        currentLoan = loan;
+    }
+    
     /**
      * Find and assign a lender to the current Loan instance, by searching through names
      * @param name The name that the system should try and find
